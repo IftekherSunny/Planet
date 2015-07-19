@@ -4,7 +4,7 @@ return [
 
     'File' => 'Sun\FilesystemAlien',
     'Mail' => 'SunMailer\MailerAlien',
-    'View' => 'SunMailer\ViewAlien',
+    'View' => 'Sun\View\ViewAlien',
     'Flash' => 'Sun\FlashAlien',
     'Session' => 'Sun\SessionAlien'
 
