@@ -2,12 +2,17 @@
 
 namespace App\Controllers;
 
-use Sun\Routing\Controller;
+use View;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller{
+
     public function index()
     {
-        return "Welcome to Sun Planet";
+        return View::render('index.php');
+    }
+
+    public function about()
+    {
+        return View::render('about.php');
     }
 }
