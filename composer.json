@@ -1,0 +1,16 @@
+{
+    "name": "sun/planet",
+    "description": "The Planet Framework.",
+    "keywords": ["framework", "planet"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.4.0",
+        "planet/framework": "dev-master"
+    },
+     "autoload": {
+	    "psr-4": {
+	   	"App\\": "app/"
+	}
+   }
+}
