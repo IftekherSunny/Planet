@@ -26,14 +26,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Sun Planet</a>
+            <a class="navbar-brand" href="/">Sun Planet</a>
         </div>
 
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/home">Home <span class="sr-only">(current)</span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/auth/logout">Logout</a></li>
@@ -45,7 +44,7 @@
 <div class="container">
     <div class="row">
         <div class="heading text-center">
-            {% block content %}{% endblock %}
+            <h1>Welcome to Home</h1>
         </div>
     </div>
 </div>

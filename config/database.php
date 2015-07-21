@@ -6,7 +6,7 @@ return [
     'connection' => [
         'mysql' => [
             'host' => 'localhost',
-            'database' => 'bank',
+            'database' => 'planet',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',

@@ -14,8 +14,8 @@ return [
         /**
          * User Credential
          */
-        'username' => 'example@gmail.com',
-        'password' => 'secret',
+        'username' => 'iftekherbd71@gmail.com',
+        'password' => 'iftekher8864',
 
         /**
          *  Sender email address & name             *
@@ -40,7 +40,7 @@ return [
         /**
          *  Log Email
          */
-        'log' => true,
+        'log' => false,
 
         /**
          * Email View Path
