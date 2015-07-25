@@ -26,23 +26,24 @@ class AuthController extends Controller
         if(! $user) {
             Flash::error('The email address is not registered.');
 
-            Redirect::back();
+            return Redirect::back();
         }
 
         if(! $user->active) {
             Flash::error('Please, confirm your email address.');
 
-            Redirect::back();
+            return Redirect::back();
         }
 
         if(Hash::verify(Request::input('password'), $user->password)) {
             Session::create('login', true);
-            Redirect::to('/home');
+
+            return Redirect::to('/home');
         }
 
         Flash::error('Email / Password do not match.');
 
-        Redirect::back();
+        return Redirect::back();
     }
 
     public function getRegister()
@@ -61,7 +62,8 @@ class AuthController extends Controller
         ]);
 
         if($validate->fails()) {
-            Redirect::backWith('errors', $validate->errors()->all());
+
+            return Redirect::backWith('errors', $validate->errors()->all());
         }
 
         $user = new User;
@@ -78,12 +80,12 @@ class AuthController extends Controller
                                 'name'  => $user->name
                             ]);
 
-            Mail::send($user->email, $user->name, '[My Awesome App] Confirm your email address.', $body);
+            Mail::send($user->email, $user->name, '['. config('app.app.name') . '] Confirm your email address.', $body);
         }
 
         Flash::success('Your confirmation email has been sent.');
 
-        Redirect::to('/auth/login');
+        return Redirect::to('/auth/login');
     }
 
     public function getEamilConfrim($code)
@@ -99,14 +101,14 @@ class AuthController extends Controller
                 'name'  => $user->name
             ]);
 
-            Mail::send($user->email, $user->name, '[My Awesome App] Confirm your email address.', $body);
+            Mail::send($user->email, $user->name, '['. config('app.app.name') . '] Confirm your email address.', $body);
 
             Flash::success('Thank you for your registration.');
         } else {
             Flash::error('You use wrong email confirmation code.');
         }
 
-        Redirect::to('/auth/login');
+        return Redirect::to('/auth/login');
     }
 
     public function getReset()
@@ -121,13 +123,13 @@ class AuthController extends Controller
         ]);
 
         if($validate->fails()) {
-            Redirect::backWith('errors', $validate->errors()->all());
+            return Redirect::backWith('errors', $validate->errors()->all());
         }
 
         $user = User::whereEmail(Request::input('email'))->first();
 
         if ($user) {
-            $tempPassword = rand();
+            $tempPassword = rand(111111,999999);
 
             $user->temp_password = Hash::make($tempPassword);
             $user->code = md5(rand());
@@ -139,16 +141,16 @@ class AuthController extends Controller
                 'name'      => $user->name
             ]);
 
-            Mail::send($user->email, $user->name, '[My Awesome App] Your new password.', $body);
+            Mail::send($user->email, $user->name, '['. config('app.app.name') . '] Your new password.', $body);
 
             Flash::success('Your new password has been sent.');
 
-            Redirect::back();
+            return Redirect::back();
         }
 
         Flash::error('Invalid email address.');
 
-        Redirect::back();
+        return Redirect::back();
     }
 
     public function getResetConfirm($code)
@@ -166,13 +168,13 @@ class AuthController extends Controller
             Flash::error('You use wrong reset password confirmation code.');
         }
 
-        Redirect::to('/auth/login');
+        return Redirect::to('/auth/login');
     }
 
     public function getLogout()
     {
         Session::delete('login');
 
-        Redirect::to('/');
+        return Redirect::to('/');
     }
 }

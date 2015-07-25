@@ -1,1 +1,1 @@
-<title> {{ $title }} - My Awesome App }}</title>
+<title> {{ $title }} - {{ config('app.app.name') }}</title>

@@ -80,16 +80,16 @@
         },
         {
             "name": "danielstjules/stringy",
-            "version": "1.9.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielstjules/Stringy.git",
-                "reference": "3cf18e9e424a6dedc38b7eb7ef580edb0929461b"
+                "reference": "4749c205db47ee5b32e8d1adf6d9aff8db6caf3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/3cf18e9e424a6dedc38b7eb7ef580edb0929461b",
-                "reference": "3cf18e9e424a6dedc38b7eb7ef580edb0929461b",
+                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/4749c205db47ee5b32e8d1adf6d9aff8db6caf3b",
+                "reference": "4749c205db47ee5b32e8d1adf6d9aff8db6caf3b",
                 "shasum": ""
             },
             "require": {
@@ -132,7 +132,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2015-02-10 06:19:18"
+            "time": "2015-07-23 00:54:12"
         },
         {
             "name": "doctrine/inflector",
@@ -307,16 +307,16 @@
         },
         {
             "name": "duncan3dc/helpers",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/duncan3dc/php-helpers.git",
-                "reference": "4abf962ebc2d1e74db7ecbcae16230e5455bd0ed"
+                "reference": "3cd2796ec38decdd2afc5f6944979517ef496057"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duncan3dc/php-helpers/zipball/4abf962ebc2d1e74db7ecbcae16230e5455bd0ed",
-                "reference": "4abf962ebc2d1e74db7ecbcae16230e5455bd0ed",
+                "url": "https://api.github.com/repos/duncan3dc/php-helpers/zipball/3cd2796ec38decdd2afc5f6944979517ef496057",
+                "reference": "3cd2796ec38decdd2afc5f6944979517ef496057",
                 "shasum": ""
             },
             "require": {
@@ -358,7 +358,7 @@
                 "image",
                 "session"
             ],
-            "time": "2015-06-04 15:18:58"
+            "time": "2015-07-23 20:43:50"
         },
         {
             "name": "duncan3dc/serial",
@@ -412,7 +412,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v5.1.6",
+            "version": "v5.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -455,16 +455,16 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.1.1",
+            "version": "v5.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "6e18848e5d332d802aa8bfa60b95e022023973f1"
+                "reference": "140dd18acb6be297fbd9870f8dda9d9d0a17c460"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/6e18848e5d332d802aa8bfa60b95e022023973f1",
-                "reference": "6e18848e5d332d802aa8bfa60b95e022023973f1",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/140dd18acb6be297fbd9870f8dda9d9d0a17c460",
+                "reference": "140dd18acb6be297fbd9870f8dda9d9d0a17c460",
                 "shasum": ""
             },
             "require": {
@@ -493,20 +493,20 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "http://laravel.com",
-            "time": "2015-06-08 18:13:21"
+            "time": "2015-07-14 01:36:14"
         },
         {
             "name": "illuminate/database",
-            "version": "v5.1.6",
+            "version": "v5.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "0aca69fe48c1253451a5fa286082fa99814591b6"
+                "reference": "ad33fd28df334f248b97cd7ffd747b78635ec0c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/0aca69fe48c1253451a5fa286082fa99814591b6",
-                "reference": "0aca69fe48c1253451a5fa286082fa99814591b6",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/ad33fd28df334f248b97cd7ffd747b78635ec0c4",
+                "reference": "ad33fd28df334f248b97cd7ffd747b78635ec0c4",
                 "shasum": ""
             },
             "require": {
@@ -552,11 +552,11 @@
                 "orm",
                 "sql"
             ],
-            "time": "2015-07-03 08:31:13"
+            "time": "2015-07-20 16:50:34"
         },
         {
             "name": "illuminate/events",
-            "version": "v5.1.6",
+            "version": "v5.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -601,16 +601,16 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v5.1.6",
+            "version": "v5.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
-                "reference": "f57b8fdb0e2d576ae10fbf7c1b2d2f040abdc814"
+                "reference": "74b0f13734a9dcd4a4e0be2a0324cfe76d825483"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/filesystem/zipball/f57b8fdb0e2d576ae10fbf7c1b2d2f040abdc814",
-                "reference": "f57b8fdb0e2d576ae10fbf7c1b2d2f040abdc814",
+                "url": "https://api.github.com/repos/illuminate/filesystem/zipball/74b0f13734a9dcd4a4e0be2a0324cfe76d825483",
+                "reference": "74b0f13734a9dcd4a4e0be2a0324cfe76d825483",
                 "shasum": ""
             },
             "require": {
@@ -647,20 +647,20 @@
             ],
             "description": "The Illuminate Filesystem package.",
             "homepage": "http://laravel.com",
-            "time": "2015-06-18 02:16:31"
+            "time": "2015-07-11 20:41:11"
         },
         {
             "name": "illuminate/support",
-            "version": "v5.1.6",
+            "version": "v5.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "9c6e35802e6e7c807170a0ee263d1bfcad6cbab5"
+                "reference": "2ba8a22a554aee9a412baa2e16e4387262d6d57c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/9c6e35802e6e7c807170a0ee263d1bfcad6cbab5",
-                "reference": "9c6e35802e6e7c807170a0ee263d1bfcad6cbab5",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/2ba8a22a554aee9a412baa2e16e4387262d6d57c",
+                "reference": "2ba8a22a554aee9a412baa2e16e4387262d6d57c",
                 "shasum": ""
             },
             "require": {
@@ -700,25 +700,26 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "http://laravel.com",
-            "time": "2015-07-02 02:30:30"
+            "time": "2015-07-20 16:31:36"
         },
         {
             "name": "illuminate/view",
-            "version": "v5.1.6",
+            "version": "v5.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
-                "reference": "2fdda64855b71c94c6f965fcf7e4ac7b74011749"
+                "reference": "c5f6d9517ac956937adb44b081c44cb9ebca0ea6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/view/zipball/2fdda64855b71c94c6f965fcf7e4ac7b74011749",
-                "reference": "2fdda64855b71c94c6f965fcf7e4ac7b74011749",
+                "url": "https://api.github.com/repos/illuminate/view/zipball/c5f6d9517ac956937adb44b081c44cb9ebca0ea6",
+                "reference": "c5f6d9517ac956937adb44b081c44cb9ebca0ea6",
                 "shasum": ""
             },
             "require": {
                 "illuminate/container": "5.1.*",
                 "illuminate/contracts": "5.1.*",
+                "illuminate/events": "5.1.*",
                 "illuminate/filesystem": "5.1.*",
                 "illuminate/support": "5.1.*",
                 "php": ">=5.5.9"
@@ -746,7 +747,7 @@
             ],
             "description": "The Illuminate View package.",
             "homepage": "http://laravel.com",
-            "time": "2015-06-29 08:51:25"
+            "time": "2015-07-17 15:21:21"
         },
         {
             "name": "nesbot/carbon",
@@ -883,16 +884,16 @@
         },
         {
             "name": "php-di/php-di",
-            "version": "5.0.0",
+            "version": "5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PHP-DI.git",
-                "reference": "c3bbc0d334b888ec8baa75f95b4900ee17b18fa7"
+                "reference": "166e0431d011efb64f01e770ccfdfefc766c3a28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/c3bbc0d334b888ec8baa75f95b4900ee17b18fa7",
-                "reference": "c3bbc0d334b888ec8baa75f95b4900ee17b18fa7",
+                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/166e0431d011efb64f01e770ccfdfefc766c3a28",
+                "reference": "166e0431d011efb64f01e770ccfdfefc766c3a28",
                 "shasum": ""
             },
             "require": {
@@ -900,6 +901,9 @@
                 "php": ">=5.4.0",
                 "php-di/invoker": "~1.0",
                 "php-di/phpdoc-reader": "~2.0"
+            },
+            "replace": {
+                "mnapoli/php-di": "*"
             },
             "require-dev": {
                 "doctrine/annotations": "~1.2",
@@ -933,7 +937,7 @@
                 "dependency injection",
                 "di"
             ],
-            "time": "2015-06-10 06:16:52"
+            "time": "2015-07-24 14:06:47"
         },
         {
             "name": "php-di/phpdoc-reader",
@@ -1031,12 +1035,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/IftekherSunny/Planet-Framework.git",
-                "reference": "80aa78f7b37ad41b19e00f57873680a0ec658d1b"
+                "reference": "bffc831145d32f25ca1b910fc3feaa15ca3b7be7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IftekherSunny/Planet-Framework/zipball/80aa78f7b37ad41b19e00f57873680a0ec658d1b",
-                "reference": "80aa78f7b37ad41b19e00f57873680a0ec658d1b",
+                "url": "https://api.github.com/repos/IftekherSunny/Planet-Framework/zipball/bffc831145d32f25ca1b910fc3feaa15ca3b7be7",
+                "reference": "bffc831145d32f25ca1b910fc3feaa15ca3b7be7",
                 "shasum": ""
             },
             "require": {
@@ -1076,25 +1080,28 @@
                 "framework",
                 "planet"
             ],
-            "time": "2015-07-21 06:42:17"
+            "time": "2015-07-25 16:29:25"
         },
         {
             "name": "sun/alien",
-            "version": "v1.2",
+            "version": "v1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/IftekherSunny/Alien.git",
-                "reference": "0e21e0847df3bcad52f6cd356acbd857ff4ead4f"
+                "reference": "2ff8455eebdaf23d456e17962511e1aa396789f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IftekherSunny/Alien/zipball/0e21e0847df3bcad52f6cd356acbd857ff4ead4f",
-                "reference": "0e21e0847df3bcad52f6cd356acbd857ff4ead4f",
+                "url": "https://api.github.com/repos/IftekherSunny/Alien/zipball/2ff8455eebdaf23d456e17962511e1aa396789f5",
+                "reference": "2ff8455eebdaf23d456e17962511e1aa396789f5",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
                 "php-di/php-di": "^5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.7"
             },
             "type": "library",
             "autoload": {
@@ -1113,7 +1120,7 @@
                     "homepage": "http://iftekhersunny.com"
                 }
             ],
-            "description": "This package helps you to create alias for your class namespace.",
+            "description": "Alien helps you to create alias for your class namespace. Its also injected all the dependencies of your class.",
             "keywords": [
                 "Alien",
                 "alias",
@@ -1121,24 +1128,28 @@
                 "laravel like facades",
                 "php alias"
             ],
-            "time": "2015-07-21 06:10:33"
+            "time": "2015-07-24 13:33:51"
         },
         {
             "name": "sun/filesystem",
-            "version": "v1.1",
+            "version": "v1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/IftekherSunny/Filesystem.git",
-                "reference": "43437690fe637461434f8021b838e8fddacb4c1c"
+                "reference": "ebddfcf8e9f2c2ae8a98b6757f4d71910e9d8045"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IftekherSunny/Filesystem/zipball/43437690fe637461434f8021b838e8fddacb4c1c",
-                "reference": "43437690fe637461434f8021b838e8fddacb4c1c",
+                "url": "https://api.github.com/repos/IftekherSunny/Filesystem/zipball/ebddfcf8e9f2c2ae8a98b6757f4d71910e9d8045",
+                "reference": "ebddfcf8e9f2c2ae8a98b6757f4d71910e9d8045",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1.5",
+                "phpspec/phpspec": "^2.2"
             },
             "type": "library",
             "autoload": {
@@ -1164,20 +1175,20 @@
                 "filesystem",
                 "php filesystem"
             ],
-            "time": "2015-07-15 06:04:02"
+            "time": "2015-07-25 16:15:44"
         },
         {
             "name": "sun/flash",
-            "version": "v1.1",
+            "version": "v1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/IftekherSunny/Flash.git",
-                "reference": "5e2134c5dba808519a3e5f06c8dcb4f5700b2792"
+                "reference": "118c9ac93a274bac3db3ce4bc55f8b2f337f7f1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IftekherSunny/Flash/zipball/5e2134c5dba808519a3e5f06c8dcb4f5700b2792",
-                "reference": "5e2134c5dba808519a3e5f06c8dcb4f5700b2792",
+                "url": "https://api.github.com/repos/IftekherSunny/Flash/zipball/118c9ac93a274bac3db3ce4bc55f8b2f337f7f1f",
+                "reference": "118c9ac93a274bac3db3ce4bc55f8b2f337f7f1f",
                 "shasum": ""
             },
             "require": {
@@ -1210,20 +1221,20 @@
                 "message",
                 "php"
             ],
-            "time": "2015-07-15 05:53:49"
+            "time": "2015-07-25 16:23:01"
         },
         {
             "name": "sun/session",
-            "version": "v1.1",
+            "version": "v1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/IftekherSunny/Session.git",
-                "reference": "f05edd8ce835986cffd10faec45e0d61ac109d02"
+                "reference": "52868ee11df31fef8cc4d9f3122eec211ac6fa4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IftekherSunny/Session/zipball/f05edd8ce835986cffd10faec45e0d61ac109d02",
-                "reference": "f05edd8ce835986cffd10faec45e0d61ac109d02",
+                "url": "https://api.github.com/repos/IftekherSunny/Session/zipball/52868ee11df31fef8cc4d9f3122eec211ac6fa4c",
+                "reference": "52868ee11df31fef8cc4d9f3122eec211ac6fa4c",
                 "shasum": ""
             },
             "require": {
@@ -1242,24 +1253,32 @@
             "authors": [
                 {
                     "name": "Iftekher Sunny",
-                    "email": "iftekhersunny@hotmail.com"
+                    "email": "iftekhersunny@hotmail.com",
+                    "homepage": "http://iftekhersunny.com"
                 }
             ],
             "description": "This package helps you to manage your session easily.",
-            "time": "2015-07-13 04:14:22"
+            "keywords": [
+                "auth",
+                "laravel like session",
+                "php",
+                "php session",
+                "session"
+            ],
+            "time": "2015-07-25 16:24:17"
         },
         {
             "name": "sun/sunmailer",
-            "version": "v1.2",
+            "version": "v1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/IftekherSunny/SunMailer.git",
-                "reference": "8fc8209ec0939cefe1cacf341d5a1384690d5243"
+                "reference": "2a19c5624718779718142e8bd7c3dd69170f2623"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IftekherSunny/SunMailer/zipball/8fc8209ec0939cefe1cacf341d5a1384690d5243",
-                "reference": "8fc8209ec0939cefe1cacf341d5a1384690d5243",
+                "url": "https://api.github.com/repos/IftekherSunny/SunMailer/zipball/2a19c5624718779718142e8bd7c3dd69170f2623",
+                "reference": "2a19c5624718779718142e8bd7c3dd69170f2623",
                 "shasum": ""
             },
             "require": {
@@ -1297,7 +1316,7 @@
                 "php",
                 "phpmailer"
             ],
-            "time": "2015-07-21 06:32:49"
+            "time": "2015-07-25 16:21:14"
         },
         {
             "name": "symfony/finder",

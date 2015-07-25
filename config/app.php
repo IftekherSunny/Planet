@@ -3,8 +3,6 @@
 return [
     'app'   => [
         'name'  =>  'My Awesome App',
-        'url'   =>  [
-            'link' => 'localhost'
-        ]
+        'url'   =>  'http://localhost:8000'
     ]
 ];
