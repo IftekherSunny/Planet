@@ -14,13 +14,33 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    /**
+     * To show login form
+     *
+     * @return \Sun\View\View
+     */
     public function getLogin()
     {
         return View::render('auth.login');
     }
 
+    /**
+     * To check user credentials
+     *
+     * @return \Sun\Http\Redirect
+     */
     public function postLogin()
     {
+        $validate = Validator::validate([
+            'email'             =>  [Request::input('email'), 'required'],
+            'password'          =>  [Request::input('password'), 'required']
+        ]);
+
+        if($validate->fails()) {
+
+            return Redirect::backWith('errors', $validate->errors()->all());
+        }
+
         $user = User::whereEmail(Request::input('email'))->first();
 
         if(! $user) {
@@ -46,11 +66,21 @@ class AuthController extends Controller
         return Redirect::back();
     }
 
+    /**
+     * To show registration form
+     *
+     * @return \Sun\View\View
+     */
     public function getRegister()
     {
         return View::render('auth.register');
     }
 
+    /**
+     * To register a user
+     *
+     * @return \Sun\Http\Redirect
+     */
     public function postRegister()
     {
         $validate = Validator::validate([
@@ -88,7 +118,14 @@ class AuthController extends Controller
         return Redirect::to('/auth/login');
     }
 
-    public function getEamilConfrim($code)
+    /**
+     * To check email confirmation code
+     *
+     * @param $code
+     *
+     * @return \Sun\Http\Redirect
+     */
+    public function getEmailConfirm($code)
     {
         $user = User::whereCode($code)->first();
 
@@ -111,11 +148,21 @@ class AuthController extends Controller
         return Redirect::to('/auth/login');
     }
 
+    /**
+     * To show password reset form
+     *
+     * @return \Sun\View\View
+     */
     public function getReset()
     {
         return View::render('auth.reset');
     }
 
+    /**
+     * To send reset password verification email
+     *
+     * @return \Sun\Http\Redirect
+     */
     public function postReset()
     {
         $validate = Validator::validate([
@@ -153,6 +200,13 @@ class AuthController extends Controller
         return Redirect::back();
     }
 
+    /**
+     * To reset user password
+     *
+     * @param $code
+     *
+     * @return \Sun\Http\Redirect
+     */
     public function getResetConfirm($code)
     {
         $user = User::whereCode($code)->first();
@@ -171,6 +225,11 @@ class AuthController extends Controller
         return Redirect::to('/auth/login');
     }
 
+    /**
+     * To logout a user
+     *
+     * @return \Sun\Http\Redirect
+     */
     public function getLogout()
     {
         Session::delete('login');

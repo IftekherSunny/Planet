@@ -16,7 +16,7 @@ $app->group(['filter' => 'Guest'], function () use($app) {
     $app->get('/auth/login', 'AuthController@getLogin');
     $app->get('/auth/register', 'AuthController@getRegister');
     $app->get('/auth/reset', 'AuthController@getReset');
-    $app->get('/auth/email/confirm/{code}', 'AuthController@getEamilConfrim');
+    $app->get('/auth/email/confirm/{code}', 'AuthController@getEmailConfirm');
     $app->get('/auth/reset/confirm/{code}', 'AuthController@getResetConfirm');
 
     /**
