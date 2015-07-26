@@ -14,8 +14,8 @@ return [
         /**
          * User Credential
          */
-        'username' => 'iftekherbd71@gmail.com',
-        'password' => 'iftekher8864',
+        'username' => 'example@gmail.com',
+        'password' => 'yourpassword',
 
         /**
          *  Sender email address & name             *
