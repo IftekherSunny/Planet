@@ -236,6 +236,11 @@ class AuthController extends Controller
         return View::render('auth.changePassword');
     }
 
+    /**
+     * To change password
+     * 
+     * @return \Sun\Http\Redirect
+     */
     public function postChangePassword()
     {
         $validate = Validator::validate([
