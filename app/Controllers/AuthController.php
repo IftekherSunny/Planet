@@ -3,13 +3,13 @@
 namespace App\Controllers;
 
 use Flash;
-use View;
 use Hash;
 use Mail;
+use Redirect;
 use Request;
 use Session;
-use Redirect;
 use Validator;
+use View;
 use App\Models\User;
 
 class AuthController extends Controller
@@ -32,31 +32,32 @@ class AuthController extends Controller
     public function postLogin()
     {
         $validate = Validator::validate([
-            'email'             =>  [Request::input('email'), 'required'],
-            'password'          =>  [Request::input('password'), 'required']
+            'email' => [Request::input('email'), 'required'],
+            'password' => [Request::input('password'), 'required']
         ]);
 
-        if($validate->fails()) {
+        if ($validate->fails()) {
 
             return Redirect::backWith('errors', $validate->errors()->all());
         }
 
         $user = User::whereEmail(Request::input('email'))->first();
 
-        if(! $user) {
+        if (!$user) {
             Flash::error('The email address is not registered.');
 
             return Redirect::back();
         }
 
-        if(! $user->active) {
+        if (!$user->active) {
             Flash::error('Please, confirm your email address.');
 
             return Redirect::back();
         }
 
-        if(Hash::verify(Request::input('password'), $user->password)) {
+        if (Hash::verify(Request::input('password'), $user->password)) {
             Session::create('login', true);
+            Session::create('loginUserId', $user->id);
 
             return Redirect::to('/home');
         }
@@ -84,14 +85,13 @@ class AuthController extends Controller
     public function postRegister()
     {
         $validate = Validator::validate([
-            'name'              =>  [Request::input('name'), 'required|min(3)|max(30)'],
-            'email'             =>  [Request::input('email'), 'required|email|max(60)'],
-            'password'          => [Request::input('password'), 'required|min(8)'],
-            'password_confirmation| confirm password'
-                                => [Request::input('password_confirmation'), 'required|matches(password)']
+            'name' => [Request::input('name'), 'required|min(3)|max(30)'],
+            'email' => [Request::input('email'), 'required|email|max(60)|unique(email)'],
+            'password' => [Request::input('password'), 'required|min(8)'],
+            'password_confirmation| confirm password' => [Request::input('password_confirmation'), 'required|matches(password)']
         ]);
 
-        if($validate->fails()) {
+        if ($validate->fails()) {
 
             return Redirect::backWith('errors', $validate->errors()->all());
         }
@@ -104,18 +104,19 @@ class AuthController extends Controller
         $user->code = md5(rand());
         $user->active = 0;
 
-        if($user->save()) {
+        if ($user->save()) {
             $body = View::render('emails.registration', [
-                                'code'  => $user->code,
-                                'name'  => $user->name
-                            ]);
+                'code' => $user->code,
+                'name' => $user->name
+            ]);
 
-            Mail::send($user->email, $user->name, '['. config('app.app.name') . '] Confirm your email address.', $body);
+            Mail::send($user->email, $user->name, '[' . config('app.app.name') . '] Confirm your email address.', $body);
+
+            Flash::success('Your confirmation email has been sent.');
+
+             return Redirect::to('/auth/login');
         }
 
-        Flash::success('Your confirmation email has been sent.');
-
-        return Redirect::to('/auth/login');
     }
 
     /**
@@ -129,16 +130,16 @@ class AuthController extends Controller
     {
         $user = User::whereCode($code)->first();
 
-        if($user) {
+        if ($user) {
             $user->active = 1;
             $user->code = '';
             $user->save();
             $body = View::render('emails.registration', [
-                'code'  => $user->code,
-                'name'  => $user->name
+                'code' => $user->code,
+                'name' => $user->name
             ]);
 
-            Mail::send($user->email, $user->name, '['. config('app.app.name') . '] Confirm your email address.', $body);
+            Mail::send($user->email, $user->name, '[' . config('app.app.name') . '] Confirm your email address.', $body);
 
             Flash::success('Thank you for your registration.');
         } else {
@@ -166,29 +167,29 @@ class AuthController extends Controller
     public function postReset()
     {
         $validate = Validator::validate([
-            'email'             =>  [Request::input('email'), 'required']
+            'email' => [Request::input('email'), 'required']
         ]);
 
-        if($validate->fails()) {
+        if ($validate->fails()) {
             return Redirect::backWith('errors', $validate->errors()->all());
         }
 
         $user = User::whereEmail(Request::input('email'))->first();
 
         if ($user) {
-            $tempPassword = rand(111111,999999);
+            $tempPassword = rand(111111, 999999);
 
             $user->temp_password = Hash::make($tempPassword);
             $user->code = md5(rand());
             $user->save();
 
             $body = View::render('emails.reset', [
-                'password'  => $tempPassword,
-                'code'      => $user->code,
-                'name'      => $user->name
+                'password' => $tempPassword,
+                'code' => $user->code,
+                'name' => $user->name
             ]);
 
-            Mail::send($user->email, $user->name, '['. config('app.app.name') . '] Your new password.', $body);
+            Mail::send($user->email, $user->name, '[' . config('app.app.name') . '] Your new password.', $body);
 
             Flash::success('Your new password has been sent.');
 
@@ -211,7 +212,7 @@ class AuthController extends Controller
     {
         $user = User::whereCode($code)->first();
 
-        if($user) {
+        if ($user) {
             $user->code = '';
             $user->password = $user->temp_password;
             $user->temp_password = '';
@@ -226,13 +227,48 @@ class AuthController extends Controller
     }
 
     /**
+     * To show change password form
+     *
+     * @return \Sun\View\View
+     */
+    public function getChangePassword()
+    {
+        return View::render('auth.changePassword');
+    }
+
+    public function postChangePassword()
+    {
+        $validate = Validator::validate([
+            'old_password| Old password' => [Request::input('old_password'), 'required|verify'],
+            'new_password| New password' => [Request::input('new_password'), 'required|min(8)'],
+            'new_password_confirmation| Confirm new password' => [Request::input('new_password_confirmation'), 'required|matches(new_password)']
+        ]);
+
+        if ($validate->fails()) {
+
+            return Redirect::backWith('errors', $validate->errors()->all());
+        }
+
+        $user = User::find(Session::get('loginUserId'));
+
+        $user->password = Hash::make(Request::input('new_password'));
+
+        if($user->save()) {
+            Flash::success('Your password has been updated successfully.');
+        }
+
+
+        return Redirect::to('/');
+    }
+
+    /**
      * To logout a user
      *
      * @return \Sun\Http\Redirect
      */
     public function getLogout()
     {
-        Session::delete('login');
+        Session::destroy();
 
         return Redirect::to('/');
     }

@@ -7,11 +7,10 @@ $app->get('/', function () {
     return View::render('index');
 });
 
-
 /**
  * This route you can access before login
  */
-$app->group(['filter' => 'Guest'], function () use($app) {
+$app->group(['filter' => 'Guest'], function () use ($app) {
 
     $app->get('/auth/login', 'AuthController@getLogin');
     $app->get('/auth/register', 'AuthController@getRegister');
@@ -22,7 +21,7 @@ $app->group(['filter' => 'Guest'], function () use($app) {
     /**
      * CSRF Token Check
      */
-    $app->group(['filter' => 'Csrf'], function () use($app) {
+    $app->group(['filter' => 'Csrf'], function () use ($app) {
         $app->post('/auth/login', 'AuthController@postLogin');
         $app->post('/auth/register', 'AuthController@postRegister');
         $app->post('/auth/reset', 'AuthController@postReset');
@@ -32,11 +31,13 @@ $app->group(['filter' => 'Guest'], function () use($app) {
 /**
  * This route you can access after login
  */
-$app->group(['filter' => 'Auth'], function() use($app) {
+$app->group(['filter' => 'Auth'], function () use ($app) {
 
-    $app->get('/home', function () use($app) {
+    $app->get('/home', function () use ($app) {
         return View::render('home');
     });
 
+    $app->get('/change_password', 'AuthController@getChangePassword');
+    $app->post('/change_password', 'AuthController@postChangePassword');
     $app->get('/auth/logout', 'AuthController@getLogout');
 });

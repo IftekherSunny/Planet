@@ -35,7 +35,10 @@
                 <li><a href="/home">Home <span class="sr-only">(current)</span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                @if(Session::has('login'))
+                <li><a href="/change_password">Change Password</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
+                @endif
             </ul>
         </div>
     </div>

@@ -12,6 +12,9 @@
             color: #afafaf;
             font-size: 50px;
         }
+        .show-message {
+            margin-top: 70px;
+        }
     </style>
 </head>
 <body>
@@ -35,7 +38,10 @@
                 <li><a href="/home">Home <span class="sr-only">(current)</span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/auth/logout">Logout</a></li>
+                @if(Session::has('login'))
+                    <li><a href="/change_password">Change Password</a></li>
+                    <li><a href="/auth/logout">Logout</a></li>
+                @endif
             </ul>
         </div>
     </div>
@@ -43,6 +49,13 @@
 
 <div class="container">
     <div class="row">
+
+        @if(Session::has('flash_notification.message'))
+        <div class="show-message">
+            @include('vendor.sun.flash.Flash_Message')
+        </div>
+        @endif
+
         <div class="heading text-center">
             <h1>Welcome to Sun Planet</h1>
         </div>

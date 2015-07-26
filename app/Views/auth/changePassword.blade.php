@@ -5,18 +5,18 @@
 @stop
 
 @section('content')
-    <!-- Begin User Login -->
-    <div class="user-login">
+    <!-- Begin Change Password -->
+    <div class="user-signup">
         <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
 
-           <div class="logo">
+            <div class="logo">
                 <h2>{{ config('app.app.name') }}</h2>
-           </div>
+            </div>
 
             <!-- Begin Panel -->
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <strong><i class="fa fa-user"></i> Login</strong>
+                    <strong><i class="fa fa-key"></i> Change Password</strong>
                 </div>
 
                 <!-- Begin Panel Body -->
@@ -26,23 +26,31 @@
 
                     @include('layouts.partials.error')
 
-                    <form action="/auth/login" method="post">
+                    <form action="/change_password" method="post">
 
                         <input type="hidden" id="_token" name="token" value="{{ csrf_token() }}" />
 
-                        <!-- Email Field -->
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ Request::old('email') }}">
-                            </div>
-                        </div>
-
-                        <!-- Password Field -->
+                        <!-- Old Password Field -->
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-key"></i></div>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                <input type="password" class="form-control" id="old_password" name="old_password" placeholder="Old Password">
+                            </div>
+                        </div>
+
+                        <!-- New Password Field -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                                <input type="password" class="form-control" id="new_password" name="new_password" placeholder="New Password">
+                            </div>
+                        </div>
+
+                        <!-- Confirm New Password Field -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                                <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation" placeholder="Confirm New Password">
                             </div>
                         </div>
 
@@ -50,7 +58,7 @@
                         <div class="checkbox">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in"></i> Login</button>
+                                    <button type="submit" class="btn btn-success btn-block">Update</button>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +69,7 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-6">
-                           <a href="/auth/register" class="pull-left">Create new account?</a>
+                            <a href="/auth/register" class="pull-left">Create new account?</a>
                         </div>
 
                         <div class="col-xs-6">
@@ -73,5 +81,5 @@
             </div> <!-- End Panel -->
 
         </div>
-    </div> <!-- End User Login -->
+    </div> <!-- End Change Password -->
 @endsection
