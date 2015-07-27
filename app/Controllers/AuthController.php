@@ -59,6 +59,8 @@ class AuthController extends Controller
             Session::create('login', true);
             Session::create('loginUserId', $user->id);
 
+            Flash::overlay('<b>Message</b>', 'Welcome back, <b>'. $user->name . '</b>');
+
             return Redirect::to('/home');
         }
 

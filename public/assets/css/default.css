@@ -10446,3 +10446,10 @@ button.close {
     margin-left: 2px;
 }
 
+.jumbotron {
+    margin-top: 50px;
+}
+
+.page-header {
+    margin-top: 70px;
+}
