@@ -6,7 +6,7 @@
         <h1>Planet Framework</h1>
         <p>Open source PHP web application framework</p>
         <p>
-            <a class="btn btn-primary btn-lg" href="https://github.com/IftekherSunny/Planet" role="button">Want to built Web App? &raquo;</a>
+            <a class="btn btn-primary btn-lg" href="https://github.com/IftekherSunny/Planet" role="button">Want to build Web App? &raquo;</a>
             <a class="btn btn-success btn-lg" href="https://github.com/IftekherSunny/Planet-Framework" role="button">Project Source Code &raquo;</a>
         </p>
     </div>
@@ -26,7 +26,7 @@
     <div class="col-md-6">
         <h2>Install via download zip: </h2>
     <pre>
-    <a href="#" class="btn btn-success "><i class="fa fa-download"></i> Download </a>
+    <a href="http://planet.iftekhersunny.com/Planet-Framework.zip" class="btn btn-success "><i class="fa fa-download"></i> Download </a>
     </pre>
     </div>
 
@@ -111,7 +111,6 @@
     'Csrf'          => 'Sun\Alien\CsrfAlien',
     'Hash'          => 'Sun\Alien\EncrypterAlien',
     'Validator'     => 'Sun\Alien\ValidatorAlien',
-
     'File'          => 'Sun\FilesystemAlien',
     'Mail'          => 'SunMailer\MailerAlien',
     'Flash'         => 'Sun\FlashAlien',
@@ -170,9 +169,7 @@
     <div class="col-md-6">
     <h2>Filters</h2>
     <pre>
-    Guest
-    Auth
-    Csrf
+    Guest, Auth, Csrf
     </pre>
 
     <h2>Email</h2>
@@ -182,13 +179,13 @@
 
     // email with html view
     $body = view('emailTemplate', [ 'data' => $data ]);
-
     Mail::send('name@example.com', 'name', 'Subject', $body);
     </pre>
 </div>
     <div class="col-md-6">
     <h2>Custom Filter</h2>
     <pre>
+
     class CustomFilter extends \Sun\Routing\Filter
     {
         /**
@@ -196,8 +193,8 @@
          */
         public function handle()
         {
-            if($this->session->has('login')) {
-                $this->redirect->to('/home');
+            if(\Session::has('login')) {
+                \Redirect::to('/home');
             }
         }
     }
@@ -205,6 +202,7 @@
 </div>
 </div>
 <div class="row">
+    <br/><br/>
     <hr>
     <footer>
         <p>&copy; <a href="https://www.facebook.com/profile.php?id=100002837300191">IftekherSunny</a> {{ date('Y') }}</p>
