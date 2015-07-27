@@ -238,7 +238,7 @@ class AuthController extends Controller
 
     /**
      * To change password
-     * 
+     *
      * @return \Sun\Http\Redirect
      */
     public function postChangePassword()
@@ -259,7 +259,7 @@ class AuthController extends Controller
         $user->password = Hash::make(Request::input('new_password'));
 
         if($user->save()) {
-            Flash::success('Your password has been updated successfully.');
+            Flash::overlay('Message','Your password has been updated successfully.');
         }
 
 

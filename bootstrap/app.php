@@ -3,8 +3,8 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = new Sun\Application([
-    'path' => __DIR__ . '/../'
-]);
+            'path' => __DIR__ . '/../'
+        ]);
 
 Sun\AlienLoader::load();
 

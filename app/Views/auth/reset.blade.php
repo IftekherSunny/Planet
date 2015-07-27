@@ -25,7 +25,7 @@
                     @include('layouts.partials.error')
                     @include('layouts.partials.success')
 
-                    <form action="/auth/reset" method="post">
+                    <form action="{{ url('/auth/reset') }}" method="post">
 
                         <input type="hidden" name="token" id="token" value="{{ csrf_token()}}" />
 
@@ -47,11 +47,11 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-6">
-                            <a href="/auth/register" class="pull-left">Create new account?</a>
+                            <a href="{{ url('/auth/register') }}" class="pull-left">Create new account?</a>
                         </div>
 
                         <div class="col-xs-6">
-                            <a href="/auth/login" class="pull-right">Already have an account?</a>
+                            <a href="{{ url('/auth/login') }}" class="pull-right">Already have an account?</a>
                         </div>
                     </div>
 
