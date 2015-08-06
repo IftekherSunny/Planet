@@ -4,8 +4,8 @@ namespace App\Filters;
 
 use Request;
 use Sun\Routing\Filter;
-use Sun\Security\Csrf as CsrfToken;
 use Sun\Security\TokenMismatchException;
+use Sun\Contracts\Security\Csrf as CsrfToken;
 
 class Csrf extends Filter
 {

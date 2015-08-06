@@ -1,4 +1,5 @@
 .idea
 /vendor
+/storage/database.sqlite
 /storage/framework/views/
 composer.lock

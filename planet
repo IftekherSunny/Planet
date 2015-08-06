@@ -1,0 +1,13 @@
+<?php
+use Sun\Console\Application;
+
+$app = require __DIR__.'/bootstrap/app.php';
+
+
+$application = new Application($app);
+
+$application->bootCommand();
+
+$application->run();
+
+

@@ -59,7 +59,7 @@ class AuthController extends Controller
             Session::create('login', true);
             Session::create('loginUserId', $user->id);
 
-            Flash::overlay('<b>Message</b>', 'Welcome back, <b>'. $user->name . '</b>');
+            Flash::overlay('<b>Message</b>', 'Welcome back, <b>' . $user->name . '</b>');
 
             return Redirect::to('/home');
         }
@@ -116,7 +116,7 @@ class AuthController extends Controller
 
             Flash::success('Your confirmation email has been sent.');
 
-             return Redirect::to('/auth/login');
+            return Redirect::to('/auth/login');
         }
 
     }
@@ -260,10 +260,9 @@ class AuthController extends Controller
 
         $user->password = Hash::make(Request::input('new_password'));
 
-        if($user->save()) {
-            Flash::overlay('Message','Your password has been updated successfully.');
+        if ($user->save()) {
+            Flash::overlay('Message', 'Your password has been updated successfully.');
         }
-
 
         return Redirect::to('/');
     }
