@@ -286,7 +286,7 @@
     </pre>
     <h2>ORM & Templates</h2>
     <pre>
-    On this framework I used Laravel ORM & Blade templates.
+    In this framework I used Laravel ORM & Blade templates.
 
     Learn More: <br />
     <a href="http://laravel.com/docs/5.1/eloquent" class="btn btn-xs btn-primary">Laravel ORM</a> <a href="http://laravel.com/docs/5.1/blade" class="btn btn-xs btn-danger">Blade templates</a>
