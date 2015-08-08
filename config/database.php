@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'driver' => 'mysql',
+    'driver' => 'sqlite',
 
     'connection' => [
         'mysql' => [

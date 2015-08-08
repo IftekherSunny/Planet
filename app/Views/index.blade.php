@@ -19,7 +19,7 @@
         <h2>Install via composer: </h2>
     <pre>
 
-    composer create-project sun/planet=v1.0-beta.1
+    composer create-project sun/planet=dev-master
     </pre>
     </div>
 
@@ -48,6 +48,22 @@
     $app->post('/', function () {
 
         return 'Hello World!';
+
+    });
+
+
+    // Delete Route
+    $app->delete('/user/1', function () {
+
+        return 'deleted!';
+
+    });
+
+
+    // Put Route
+    $app->put('/user/1', function () {
+
+        return 'updated!';
 
     });
 
@@ -94,6 +110,21 @@
         return Redirect::backWith('errors', $validate->errors()->all());
     }
     </pre>
+
+    <h2>Console Command</h2>
+    <pre>
+    php planet list            [ list of commands ]
+    php planet run             [ start built-in server ]
+    php planet app:name        [ change app namespace ]
+    php planet app:key         [ set app key ]
+    php planet make:alien      [ create alien ]
+    php planet make:command    [ create command bus ]
+    php planet make:console    [ create console command ]
+    php planet make:model      [ create model ]
+    php planet make:controller [ create controller ]
+    php planet make:filter     [ create filter ]
+    php planet view:clear      [ clear compiled view ]
+    </pre>
             </div>
         </div>
 
@@ -111,10 +142,10 @@
     'Csrf'          => 'Sun\Alien\CsrfAlien',
     'Hash'          => 'Sun\Alien\EncrypterAlien',
     'Validator'     => 'Sun\Alien\ValidatorAlien',
+    'Session'       => 'Sun\Alien\SessionAlien',
     'File'          => 'Sun\FilesystemAlien',
     'Mail'          => 'SunMailer\MailerAlien',
     'Flash'         => 'Sun\FlashAlien',
-    'Session'       => 'Sun\SessionAlien',
     </pre>
 </div>
 
@@ -140,16 +171,32 @@
 <div class="row">
 <div class="col-md-6">
     <h2>Helper Functions</h2>
+    <div class="col-sm-6">
     <pre>
+    app()
+    app_path()
+    base_path()
+    config_path()
+    storage_path()
+    public_path()
     csrf_token();
     config();
     view();
+    </pre>
+    </div>
+    <div class="col-sm-6">
+    <pre>
+    url();
     redirect();
     request();
     response();
     validator();
-    url();
+    bcrypt();
+    bcrypt_verify();
+    encrypt();
+    decrypt();
     </pre>
+    </div>
 </div>
 
 <div class="col-md-6">
@@ -200,6 +247,52 @@
     }
     </pre>
 </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+    <h2>Contracts</h2>
+    <pre>
+    'Sun\Contracts\Application'
+    'Sun\Contracts\Container\Container'
+    'Sun\Contracts\Bus\Dispatcher'
+    'Sun\Contracts\Bus\CommandTranslator'
+    'Sun\Contracts\Console\Application'
+    'Sun\Contracts\Database\Database'
+    'Sun\Contracts\Http\Redirect'
+    'Sun\Contracts\Http\Request'
+    'Sun\Contracts\Http\Response'
+    'Sun\Contracts\Routing\Filter'
+    'Sun\Contracts\Routing\Route'
+    'Sun\Contracts\Routing\UrlGenerator'
+    'Sun\Contracts\Security\Csrf'
+    'Sun\Contracts\Security\Encrypter'
+    'Sun\Contracts\Security\Hash'
+    'Sun\Contracts\Support\Config'
+    'Sun\Contracts\Validation\Validator'
+    'Sun\Contracts\View\View'
+    'Sun\Contracts\Session\Session'
+    </pre>
+    </div>
+    <div class="col-md-6">
+    <h2>Binding</h2>
+    <pre>
+    <b>You can register your own binding.</b>
+
+    // by calling function
+    app()->bind('App\Contracts\UserContract', 'App\Model\User');
+
+    // by adding namespace in the config/binding.php file
+    'App\Contracts\UserContract'   => 'App\Model\User',
+    </pre>
+    <h2>ORM & Templates</h2>
+    <pre>
+    On this framework I used Laravel ORM & Blade templates.
+
+    Learn More: <br />
+    <a href="http://laravel.com/docs/5.1/eloquent" class="btn btn-xs btn-primary">Laravel ORM</a> <a href="http://laravel.com/docs/5.1/blade" class="btn btn-xs btn-danger">Blade templates</a>
+
+    </pre>
+    </div>
 </div>
 <div class="row">
     <br/><br/>

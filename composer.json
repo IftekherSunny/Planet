@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=5.5.0",
-        "planet/framework": "dev-master"
+        "planet/framework": "v1.0-beta.2"
     },
      "autoload": {
 	    "psr-4": {
