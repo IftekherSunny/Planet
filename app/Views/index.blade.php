@@ -19,7 +19,7 @@
         <h2>Install via composer: </h2>
     <pre>
 
-    composer create-project sun/planet=dev-master
+    composer create-project sun/planet=~1.0@beta
     </pre>
     </div>
 
