@@ -49,7 +49,7 @@
                                                                                 <tbody>
                                                                                     <tr>
                                                                                         <td style="font:14px/1.4285714 Arial,sans-serif;padding:4px 10px;background-color:#3068a2">
-                                                                                            <a href="{{ config('app.app.url') }}/auth/email/confirm/{{ $code }}"
+                                                                                            <a href="{{ config('app.url') }}/auth/email/confirm/{{ $code }}"
                                                                                                 style="color:white;text-decoration:none;font-weight:bold"
                                                                                                 target="_blank">
                                                                                                 Confirm

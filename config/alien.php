@@ -1,19 +1,22 @@
 <?php
 
 return [
+
     # Planet Framework Alien
-    'View'          => 'Sun\Alien\ViewAlien',
-    'Request'       => 'Sun\Alien\RequestAlien',
-    'Redirect'      => 'Sun\Alien\RedirectAlien',
-    'Response'      => 'Sun\Alien\ResponseAlien',
     'Csrf'          => 'Sun\Alien\CsrfAlien',
+    'File'          => 'Sun\Alien\FilesystemAlien',
+    'Flash'         => 'Sun\Alien\FlashAlien',
     'Hash'          => 'Sun\Alien\HashAlien',
-    'Validator'     => 'Sun\Alien\ValidatorAlien',
+    'Mail'          => 'Sun\Alien\MailerAlien',
+    'Redirect'      => 'Sun\Alien\RedirectAlien',
+    'Request'       => 'Sun\Alien\RequestAlien',
+    'Response'      => 'Sun\Alien\ResponseAlien',
     'Session'       => 'Sun\Alien\SessionAlien',
-    'File'          => 'Sun\FilesystemAlien',
-    'Mail'          => 'SunMailer\MailerAlien',
-    'Flash'         => 'Sun\FlashAlien',
+    'Validator'     => 'Sun\Alien\ValidatorAlien',
+    'View'          => 'Sun\Alien\ViewAlien',
 
 
     # Application Alien
+
+
 ];

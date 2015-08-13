@@ -1,1 +1,1 @@
-<title> {{ $title }} - {{ config('app.app.name') }}</title>
+<title> {{ $title }} - {{ config('app.name') }}</title>

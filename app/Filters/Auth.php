@@ -2,20 +2,21 @@
 
 namespace App\Filters;
 
-use Sun\Http\Redirect;
 use Sun\Routing\Filter;
-use Sun\Session;
+use Sun\Contracts\Http\Redirect;
+use Sun\Contracts\Session\Session;
 
 class Auth extends Filter
 {
     /**
-     * @var Session
+     * @var \Sun\Contracts\Session\Session
      */
-    private $session;
+    protected $session;
+
     /**
-     * @var Redirect
+     * @var \Sun\Contracts\Http\Redirect
      */
-    private $redirect;
+    protected $redirect;
 
     /**
      * To create filter

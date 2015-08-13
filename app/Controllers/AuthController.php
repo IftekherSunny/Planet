@@ -59,7 +59,7 @@ class AuthController extends Controller
             Session::create('login', true);
             Session::create('loginUserId', $user->id);
 
-            Flash::overlay('<b>Message</b>', 'Welcome back, <b>' . $user->name . '</b>');
+            Flash::overlay('Message', "Welcome back, {$user->name}");
 
             return Redirect::to('/home');
         }
@@ -112,7 +112,7 @@ class AuthController extends Controller
                 'name' => $user->name
             ]);
 
-            Mail::send($user->email, $user->name, '[' . config('app.app.name') . '] Confirm your email address.', $body);
+            Mail::send($user->email, $user->name, '[' . config('app.name') . '] Confirm your email address.', $body);
 
             Flash::success('Your confirmation email has been sent.');
 
@@ -141,7 +141,7 @@ class AuthController extends Controller
                 'name' => $user->name
             ]);
 
-            Mail::send($user->email, $user->name, '[' . config('app.app.name') . '] Confirm your email address.', $body);
+            Mail::send($user->email, $user->name, '[' . config('app.name') . '] Confirm your email address.', $body);
 
             Flash::success('Thank you for your registration.');
         } else {
@@ -191,7 +191,7 @@ class AuthController extends Controller
                 'name' => $user->name
             ]);
 
-            Mail::send($user->email, $user->name, '[' . config('app.app.name') . '] Your new password.', $body);
+            Mail::send($user->email, $user->name, '[' . config('app.name') . '] Your new password.', $body);
 
             Flash::success('Your new password has been sent.');
 

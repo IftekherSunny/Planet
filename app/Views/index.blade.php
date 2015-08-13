@@ -11,7 +11,9 @@
         </p>
     </div>
 </div>
-
+@if(Session::has('flash_notification.message'))
+    @include('vendor.sun.flash.Flash_Message')
+@endif
 <div class="container">
 
 <div class="row">
@@ -123,6 +125,7 @@
     php planet make:model      [ create model ]
     php planet make:controller [ create controller ]
     php planet make:filter     [ create filter ]
+    php planet session:clear   [ clear session files ]
     php planet view:clear      [ clear compiled view ]
     </pre>
             </div>
@@ -134,18 +137,17 @@
 
     <pre>
     // Built in Alien
-
-    'View'          => 'Sun\Alien\ViewAlien',
-    'Request'       => 'Sun\Alien\RequestAlien',
-    'Redirect'      => 'Sun\Alien\RedirectAlien',
-    'Response'      => 'Sun\Alien\ResponseAlien',
     'Csrf'          => 'Sun\Alien\CsrfAlien',
-    'Hash'          => 'Sun\Alien\EncrypterAlien',
-    'Validator'     => 'Sun\Alien\ValidatorAlien',
+    'File'          => 'Sun\Alien\FilesystemAlien',
+    'Flash'         => 'Sun\Alien\FlashAlien',
+    'Hash'          => 'Sun\Alien\HashAlien',
+    'Mail'          => 'Sun\Alien\MailerAlien',
+    'Redirect'      => 'Sun\Alien\RedirectAlien',
+    'Request'       => 'Sun\Alien\RequestAlien',
+    'Response'      => 'Sun\Alien\ResponseAlien',
     'Session'       => 'Sun\Alien\SessionAlien',
-    'File'          => 'Sun\FilesystemAlien',
-    'Mail'          => 'SunMailer\MailerAlien',
-    'Flash'         => 'Sun\FlashAlien',
+    'Validator'     => 'Sun\Alien\ValidatorAlien',
+    'View'          => 'Sun\Alien\ViewAlien',
     </pre>
 </div>
 
@@ -250,29 +252,112 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-    <h2>Contracts</h2>
+    <h2>Filesystem</h2>
     <pre>
-    'Sun\Contracts\Application'
-    'Sun\Contracts\Container\Container'
-    'Sun\Contracts\Bus\Dispatcher'
-    'Sun\Contracts\Bus\CommandTranslator'
-    'Sun\Contracts\Console\Application'
-    'Sun\Contracts\Database\Database'
-    'Sun\Contracts\Http\Redirect'
-    'Sun\Contracts\Http\Request'
-    'Sun\Contracts\Http\Response'
-    'Sun\Contracts\Routing\Filter'
-    'Sun\Contracts\Routing\Route'
-    'Sun\Contracts\Routing\UrlGenerator'
-    'Sun\Contracts\Security\Csrf'
-    'Sun\Contracts\Security\Encrypter'
-    'Sun\Contracts\Security\Hash'
-    'Sun\Contracts\Support\Config'
-    'Sun\Contracts\Validation\Validator'
-    'Sun\Contracts\View\View'
-    'Sun\Contracts\Session\Session'
+    // create file
+    File::create(storage_path().'/app/file.txt', 'your file content');
+
+    // delete file
+    File::delete(storage_path().'/app/file.txt');
+
+    // Check file exists
+    File::exists(storage_path().'/app/file.txt');
+
+    // update file
+    File::update(storage_path().'/app/file.txt', 'your content');
+
+    // to get file content
+    File::get(storage_path().'/app/file.txt');
+
+    // append file
+    File::append(storage_path().'/app/file.txt', 'your content');
+
+    // copy file
+    File::copy(storage_path().'/app/file.txt',
+                storage_path().'/app/newFile.txt');
+
+    // move file
+    File::move(storage_path().'/app/file.txt',
+                storage_path().'/file.txt');
+
+    // to get file size
+    File::size(storage_path().'/app/file.txt');
+
+    // to get all files in a directory
+    File::files(storage_path().'/app);
+
+    // to get all directories in a directory
+    File::directories(storage_path().'/app');
+
+    // create directory
+    File::createDirectory(storage_path().'/app');
+
+    // delete directory
+    File::deleteDirectory(storage_path().'/app');
+
+    // clean directory
+    File::CleanDirectory(storage_path().'/app');
+
+    // to check is file
+    File::isFile(storage_path().'/app/file.txt');
+
+    // to check is directory
+    File::isDir(storage_path() . '/app');
     </pre>
     </div>
+    <div class="col-md-6">
+    <h2>Session</h2>
+    <pre>
+    // create session
+    Session::Create('mySession', 'content');
+
+    // to get session content
+    Session::get('mySession');
+
+    // delete session
+    Session::delete('mySession');
+
+    // to check session exists
+    Session::has('mySession');
+
+    // to get session content & delete this session
+    Session::pull('mySession');
+
+    // to push session data in the session array
+    Session::push('myArraySession', 'content');
+
+    // to pop session data from the session array
+    Session::pull('myArraySession');
+
+    // to shift session data from the session array
+    Session::shift('myArraySession');
+
+    // destroy all session data
+    Session::destroy();
+    </pre>
+    <h2>Contracts</h2>
+    <pre>
+    Sun\Contracts\Bus\CommandTranslator
+    Sun\Contracts\Bus\Dispatcher
+    Sun\Contracts\Database\Database
+    Sun\Contracts\Filesystem\Filesystem
+    Sun\Contracts\Http\Redirect
+    Sun\Contracts\Http\Request
+    Sun\Contracts\Http\Response
+    Sun\Contracts\Mail\Mailer
+    Sun\Contracts\Routing\UrlGenerator
+    Sun\Contracts\Security\Csrf
+    Sun\Contracts\Security\Encrypter
+    Sun\Contracts\Security\Hash
+    Sun\Contracts\Session\Session
+    Sun\Contracts\Support\Config
+    Sun\Contracts\Validation\Validator
+    Sun\Contracts\View\View
+
+    </pre>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-6">
     <h2>Binding</h2>
     <pre>
@@ -284,12 +369,15 @@
     // by adding namespace in the config/binding.php file
     'App\Contracts\UserContract'   => 'App\Model\User',
     </pre>
+    </div>
+    <div class="col-md-6">
     <h2>ORM & Templates</h2>
     <pre>
     In this framework I used Laravel ORM & Blade templates.
 
     Learn More: <br />
     <a href="http://laravel.com/docs/5.1/eloquent" class="btn btn-xs btn-primary">Laravel ORM</a> <a href="http://laravel.com/docs/5.1/blade" class="btn btn-xs btn-danger">Blade templates</a>
+
 
     </pre>
     </div>

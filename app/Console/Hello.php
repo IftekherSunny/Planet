@@ -4,8 +4,6 @@ namespace App\Console;
 
 use Sun\Console\Command;
 use Sun\Contracts\Application;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 
 class Hello extends Command
 {
@@ -36,6 +34,11 @@ class Hello extends Command
         $this->info('Hello World!');
     }
 
+    /**
+     * Set your command arguments
+     *
+     * @return array
+     */
     protected function getArguments()
     {
         return [
@@ -43,6 +46,11 @@ class Hello extends Command
         ];
     }
 
+    /**
+     * Set your command options
+     *
+     * @return array
+     */
     protected function getOptions()
     {
         return [

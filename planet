@@ -1,13 +1,12 @@
+#!/usr/bin/env php
 <?php
-use Sun\Console\Application;
 
+# Create The Application
 $app = require __DIR__.'/bootstrap/app.php';
 
-
-$application = new Application($app);
-
-$application->bootCommand();
-
-$application->run();
+# Create The Console Application
+$console = $app->make('Sun\Console\Application');
 
 
+# Run The Console Application
+$console->run();
