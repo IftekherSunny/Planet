@@ -3,15 +3,15 @@
 return [
 
     # Debug mode set to false in production
-    'debug'     => true,
+    'debug'     => env('DEBUG_MODE', false),
 
     # Your application key
-    'key'       => 'CNGDBMatdhR22QqgyYm5UPbP7ysnCevq',
+    'key'       => env('APP_KEY', 'App Key'),
 
     # Your application name
-    'name'      =>  'Sun Planet',
+    'name'      =>  env('APP_NAME', 'App'),
 
     # Your application url
-    'url'       =>  'http://localhost:8000'
+    'url'       =>  env('APP_URL', 'http://localhost:8000')
 
 ];

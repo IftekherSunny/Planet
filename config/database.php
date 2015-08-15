@@ -3,15 +3,15 @@
 return [
 
     # Database driver [ mysql, sqlite ]
-    'driver' => 'sqlite',
+    'driver' => env('DATABASE_DRIVER', 'sqlite'),
 
     # Database connection
     'connection' => [
         'mysql' => [
-            'host'          => 'localhost',
-            'database'      => 'planet',
-            'username'      => 'root',
-            'password'      => 'root',
+            'host'          => env('DATABASE_HOST', 'localhost'),
+            'database'      => env('DATABASE_NAME', 'planet'),
+            'username'      => env('DATABASE_USERNAME', 'root'),
+            'password'      => env('DATABASE_PASSWORD', 'root'),
             'charset'       => 'utf8',
             'collation'     => 'utf8_unicode_ci',
             'prefix'        => ''
@@ -19,7 +19,7 @@ return [
         ],
 
         'sqlite' => [
-            'database'      => storage_path() .'/database.sqlite',
+            'database'      => env('DATABASE_NAME', storage_path() .'/database.sqlite'),
             'charset'       => 'utf8',
             'collation'     => 'utf8_unicode_ci',
             'prefix'        => ''

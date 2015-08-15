@@ -3,9 +3,9 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 # Create The Application
-$app = new Sun\Application([
-            'path' => realpath(__DIR__ . '/../')
-        ]);
+$app = new Sun\Application(
+    realpath(__DIR__ . '/../')
+);
 
 $app->loadAlien();
 

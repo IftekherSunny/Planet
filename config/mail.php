@@ -3,13 +3,13 @@
 return [
 
     # Mail server
-    'host'          => 'smtp.gmail.com',
-    'port'          => 465,
-    'encryption'    => 'ssl',
+    'host'          => env('MAIL_HOST', 'smtp.gmail.com'),
+    'port'          => env('MAIL_PORT', 465),
+    'encryption'    => env('MAIL_ENCRYPTION', 'ssl'),
 
     # User credential
-    'username'      => 'example@gmail.com',
-    'password'      => 'yourpassword',
+    'username'      => env('MAIL_USERNAME', 'example@gmail.com'),
+    'password'      => env('MAIL_PASSWORD', 'yourpassword'),
 
     # Sender email address & name
     'from' => [

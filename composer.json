@@ -6,11 +6,25 @@
     "type": "project",
     "require": {
         "php": ">=5.5.0",
-        "planet/framework": "v1.0-beta.3"
+        "planet/framework": "dev-master"
     },
     "autoload": {
         "psr-4": {
         "App\\": "app/"
       }
-   }
+    },
+    "scripts": {
+      "post-install-cmd": [
+        "composer dump -o"
+      ],
+      "post-update-cmd": [
+        "composer dump -o"
+      ],
+      "post-root-package-install": [
+        "php -r \"copy('.env.example', '.env');\""
+      ],
+      "post-create-project-cmd": [
+        "php planet app:key"
+      ]
+    }
 }
