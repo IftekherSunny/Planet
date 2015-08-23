@@ -11,7 +11,7 @@ return [
             'host'          => env('DATABASE_HOST', 'localhost'),
             'database'      => env('DATABASE_NAME', 'planet'),
             'username'      => env('DATABASE_USERNAME', 'root'),
-            'password'      => env('DATABASE_PASSWORD', 'root'),
+            'password'      => env('DATABASE_PASSWORD', ''),
             'charset'       => 'utf8',
             'collation'     => 'utf8_unicode_ci',
             'prefix'        => ''

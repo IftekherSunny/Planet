@@ -73,14 +73,44 @@
     // Route Group
     $app->group(['filter' => 'Auth'], function () use ($app) {
 
-        $app->get('/Home', 'HomeController@index');
-        $app->get('/About', 'HomeController@about');
+        $app->get('/home', 'HomeController@index');
+        $app->get('/about', 'HomeController@about');
 
     });
 
 
-    // Route filter
-    $app->get('/', 'HomeController@index', ['filter' => 'Guest']);
+    // Route Any [ Its create get and post route for you.  ]
+    $app->any('/home', 'HomeController@index');
+
+
+    /**
+    * [ Route catch all ]
+    *
+    * Its catch all route that does not match with any route
+    * in the routes.php file
+    */
+    $app->get('*', function () {
+        return view('index');
+    });
+
+
+    /**
+    * [ Route Resource ]
+    *
+    * Its create RESTful route for you.
+    * /users [ GET ] Get all the users.
+    * /users [ POST ] Create a user.
+    * /users/{id} [ GET ] Get a single user.
+    * /users/{id} [ PUT ] Update a user.
+    * /users/{id} [ DELETE ] Delete a user.
+    */
+    $app->resource('/users', 'UsersController');
+
+
+    // Route filter [ To execute multiple filters use pipe ( | ) ]
+    $app->get('/', 'HomeController@index', ['filter' => 'Guest | Csrf']);
+
+
     </pre>
 </div>
 <div class="col-md-6">
@@ -116,17 +146,42 @@
     <h2>Console Command</h2>
     <pre>
     php planet list            [ list of commands ]
+
     php planet run             [ start built-in server ]
+
     php planet app:name        [ change app namespace ]
+
     php planet app:key         [ set app key ]
+
+    php planet config:cache    [ Create configuration cache file ]
+
+    php planet config:clear    [ Remove the configuration cache file ]
+
     php planet make:alien      [ create alien ]
+
     php planet make:command    [ create command bus ]
+
     php planet make:console    [ create console command ]
+
     php planet make:model      [ create model ]
+
     php planet make:controller [ create controller ]
+
     php planet make:filter     [ create filter ]
+
     php planet session:clear   [ clear session files ]
+
     php planet view:clear      [ clear compiled view ]
+    </pre>
+
+    <h2>To create RESTful controller</h2>
+    <pre>
+    php planet make:controller Users --resource
+    </pre>
+
+    <h2>To create plain controller</h2>
+    <pre>
+    php planet make:controller Users --plain
     </pre>
             </div>
         </div>
@@ -141,6 +196,7 @@
     'File'          => 'Sun\Alien\FilesystemAlien',
     'Flash'         => 'Sun\Alien\FlashAlien',
     'Hash'          => 'Sun\Alien\HashAlien',
+    'Log'           => 'Sun\Alien\LogAlien',
     'Mail'          => 'Sun\Alien\MailerAlien',
     'Redirect'      => 'Sun\Alien\RedirectAlien',
     'Request'       => 'Sun\Alien\RequestAlien',
@@ -184,13 +240,19 @@
     csrf_token();
     config();
     view();
+    url();
+    redirect();
+    request();
     </pre>
     </div>
     <div class="col-sm-6">
     <pre>
-    url();
-    redirect();
-    request();
+    get();
+    post();
+    put();
+    delete();
+    any();
+    resource();
     response();
     validator();
     bcrypt();
@@ -205,11 +267,17 @@
     <h2>Flash Message</h2>
     <pre>
     Flash::success('Hello');
+
     Flash::error('Whoops! There were some problems with your input.');
+
     Flash::info('your message');
+
     Flash::warning('your message');
+
     Flash::confirm('Message Title', 'Your Message');
+
     Flash::overlay('Message Title', 'Your Message');
+
     </pre>
 </div>
 </div>
@@ -344,6 +412,7 @@
     Sun\Contracts\Http\Redirect
     Sun\Contracts\Http\Request
     Sun\Contracts\Http\Response
+    Sun\Contracts\Log\Log
     Sun\Contracts\Mail\Mailer
     Sun\Contracts\Routing\UrlGenerator
     Sun\Contracts\Security\Csrf
@@ -353,7 +422,68 @@
     Sun\Contracts\Support\Config
     Sun\Contracts\Validation\Validator
     Sun\Contracts\View\View
+    </pre>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-md-6">
+    <h2>Log</h2>
+    <pre>
+    /**
+    * All log data saves in the path
+    *
+    * storage/framework/logs/planet.log
+    */
+
+    Log::emergency('System is unusable.');
+
+    Log::alert('Action must be taken immediately.');
+
+    Log::critical('Critical conditions.');
+
+    Log::error('Runtime errors.');
+
+    Log::warning('Exceptional occurrences.');
+
+    Log::notice('Normal but significant events.');
+
+    Log::info('Interesting events.');
+
+    Log::debug('Detailed debug information.');
+
+
+
+    </pre>
+    </div>
+
+    <div class="col-md-6">
+    <h2>Application Configuration</h2>
+    <pre>
+    // open .env file
+    # Set to false in the production
+    DEBUG_MODE=true
+
+    # Your application name
+    APP_NAME='Sun Planet'
+
+    # Your application url
+    APP_URL='http://localhost:8000'
+
+    # Your database driver [ sqlite, mysql ]
+    DATABASE_DRIVER=
+
+    # Your database host name
+    DATABASE_HOST=localhost
+
+    # Your database name
+    DATABASE_NAME=
+
+    # Database username
+    DATABASE_USERNAME=root
+
+    # Database password
+    DATABASE_PASSWORD=root
     </pre>
     </div>
 </div>

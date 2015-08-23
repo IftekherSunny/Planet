@@ -4,7 +4,7 @@
  * This route you can access before & after login
  */
 $app->get('/', function () use ($app) {
-    return View::render('index');
+    return view('index');
 });
 
 
