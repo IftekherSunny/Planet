@@ -12,6 +12,9 @@ return [
     'name'      =>  env('APP_NAME', 'App'),
 
     # Your application url
-    'url'       =>  env('APP_URL', 'http://localhost:8000')
+    'url'       =>  env('APP_URL', 'http://localhost:8000'),
+
+    # Timezone
+    'timezone'  => 'UTC'
 
 ];

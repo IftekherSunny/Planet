@@ -3,7 +3,6 @@
 namespace App\Filters;
 
 use Sun\Routing\Filter;
-use Sun\Contracts\Http\Request;
 use Sun\Security\TokenMismatchException;
 use Sun\Contracts\Security\Csrf as CsrfToken;
 
@@ -15,20 +14,13 @@ class Csrf extends Filter
     protected $token;
 
     /**
-     * @var \Sun\Contracts\Http\Request
-     */
-    protected $request;
-
-    /**
      * To create filter
      *
      * @param CsrfToken $token
-     * @param Request   $request
      */
-    public function __construct(CsrfToken $token, Request $request)
+    public function __construct(CsrfToken $token)
     {
         $this->token = $token;
-        $this->request = $request;
     }
 
     /**
@@ -36,7 +28,7 @@ class Csrf extends Filter
      */
     public function handle()
     {
-        if(! $this->token->check($this->request->input('token'))) {
+        if(!$this->token->check()) {
             throw new TokenMismatchException('csrf token mismatch.');
         }
     }

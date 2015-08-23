@@ -7,6 +7,7 @@ return [
     'File'          => 'Sun\Alien\FilesystemAlien',
     'Flash'         => 'Sun\Alien\FlashAlien',
     'Hash'          => 'Sun\Alien\HashAlien',
+    'Log'           => 'Sun\Alien\LogAlien',
     'Mail'          => 'Sun\Alien\MailerAlien',
     'Redirect'      => 'Sun\Alien\RedirectAlien',
     'Request'       => 'Sun\Alien\RequestAlien',
