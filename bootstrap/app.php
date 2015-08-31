@@ -9,7 +9,7 @@ $app = new Sun\Application(
 
 $app->loadAlien();
 
-$app->bootDatabase();
+$app->bootEloquent();
 
 $app->group(['namespace' => 'App\Controllers'], function () use ($app) {
 

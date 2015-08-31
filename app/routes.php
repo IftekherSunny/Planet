@@ -7,7 +7,6 @@ $app->get('/', function () use ($app) {
     return view('index');
 });
 
-
 /**
  * This route you can access before login
  */

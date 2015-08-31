@@ -4,6 +4,7 @@ return [
 
     # Planet Framework Alien
     'Csrf'          => 'Sun\Alien\CsrfAlien',
+    'DB'            => 'Sun\Alien\DBAlien',
     'File'          => 'Sun\Alien\FilesystemAlien',
     'Flash'         => 'Sun\Alien\FlashAlien',
     'Hash'          => 'Sun\Alien\HashAlien',
