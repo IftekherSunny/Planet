@@ -2,11 +2,10 @@
 
 namespace App\Filters;
 
-use Sun\Routing\Filter;
 use Sun\Contracts\Http\Redirect;
 use Sun\Contracts\Session\Session;
 
-class Auth extends Filter
+class Auth
 {
     /**
      * @var \Sun\Contracts\Session\Session
@@ -37,5 +36,7 @@ class Auth extends Filter
         if(! $this->session->has('login')) {
             $this->redirect->to('/auth/login');
         }
+
+        return request();
     }
 }

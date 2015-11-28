@@ -2,11 +2,10 @@
 
 namespace App\Filters;
 
-use Sun\Routing\Filter;
 use Sun\Contracts\Http\Redirect;
 use Sun\Contracts\Session\Session;
 
-class Guest extends Filter
+class Guest
 {
     /**
      * @var \Sun\Contracts\Session\Session
@@ -38,5 +37,7 @@ class Guest extends Filter
         if($this->session->has('login')) {
             $this->redirect->to('/home');
         }
+
+        return request();
     }
 }

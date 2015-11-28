@@ -2,11 +2,10 @@
 
 namespace App\Filters;
 
-use Sun\Routing\Filter;
 use Sun\Security\TokenMismatchException;
 use Sun\Contracts\Security\Csrf as CsrfToken;
 
-class Csrf extends Filter
+class Csrf
 {
     /**
      * @var \Sun\Contracts\Security\Csrf
@@ -31,5 +30,7 @@ class Csrf extends Filter
         if(!$this->token->check()) {
             throw new TokenMismatchException('csrf token mismatch.');
         }
+
+        return request();
     }
 }
