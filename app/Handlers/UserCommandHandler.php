@@ -15,6 +15,6 @@ class UserCommandHandler
      */
     public function handle(UserCommand $command)
     {
-       return $command->user->name;
+        return $command->user->name;
     }
 }

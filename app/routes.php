@@ -40,3 +40,4 @@ $app->group(['filter' => 'Auth'], function () use ($app) {
     $app->get('/auth/logout', 'AuthController@getLogout');
 
 });
+
