@@ -13,6 +13,7 @@ return [
     'Mail'          => 'Sun\Alien\MailerAlien',
     'Redirect'      => 'Sun\Alien\RedirectAlien',
     'Request'       => 'Sun\Alien\RequestAlien',
+    'Schema'        => 'Sun\Alien\SchemaAlien',
     'Response'      => 'Sun\Alien\ResponseAlien',
     'Session'       => 'Sun\Alien\SessionAlien',
     'Validator'     => 'Sun\Alien\ValidatorAlien',
