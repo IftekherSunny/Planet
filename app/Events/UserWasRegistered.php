@@ -8,6 +8,8 @@ class UserWasRegistered
 
     /**
      * To create event
+     *
+     * @param $username
      */
     public function __construct($username)
     {
