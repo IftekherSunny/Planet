@@ -3,5 +3,6 @@
 return [
 
     # Application Bootstrap
-    'App\Providers\ApplicationProvider',
+    //'App\Providers\ApplicationProvider',
+    //'App\Providers\EventProvider',
 ];

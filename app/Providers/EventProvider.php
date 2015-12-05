@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Sun\Contracts\Application as App;
 
-class ApplicationProvider
+class EventProvider
 {
     /**
      * @var \Sun\Contracts\Application
@@ -26,7 +26,9 @@ class ApplicationProvider
      */
     public function bootstrap()
     {
-        //
+        $this->app->bind('Sun\Contracts\Event\Event', 'Sun\Event\Event');
+
+        $this->app->make('Sun\Contracts\Event\Event')->register();
     }
 
     /**
@@ -35,7 +37,7 @@ class ApplicationProvider
     public function registerRoute()
     {
         return [
-             // __DIR__ . '/routes/user.php',
+
         ];
     }
 
@@ -44,7 +46,7 @@ class ApplicationProvider
      */
     public function dispatch()
     {
-        //
+        $this->app->make('Sun\Contracts\Event\Event')->dispatch();
     }
 
     /**
@@ -55,9 +57,7 @@ class ApplicationProvider
     public function publish()
     {
         return [
-            // __DIR__ .'/config/config.php'    =>  config_path() .'/packagename/config.php',
-            // __DIR__ .'/assets/style.css'     =>  public_path() .'/vendor/packagename/style.css',
-            // __DIR__ .'/assets/main.js'       =>  public_path() .'/vendor/packagename/main.js',
+
         ];
     }
 }
