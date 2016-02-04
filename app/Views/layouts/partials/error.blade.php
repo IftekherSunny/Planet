@@ -1,9 +1,9 @@
-@if(Session::has('errors'))
+@if(isset($errors))
 <div class="alert alert-danger">
 	<p><b>Whoops! </b> There were some problems with your input.</p>
 
 	<ul>
-		@foreach (Session::pull('errors') as $error)
+		@foreach ($errors as $error)
 			<li>{{ $error }}</li>
 		@endforeach
 	</ul>
