@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use Flash;
 use Hash;
+use View;
 use Mail;
-use Redirect;
+use Flash;
 use Request;
 use Session;
+use Redirect;
 use Validator;
-use View;
 use App\Models\User;
 
 class AuthController extends Controller
@@ -88,7 +88,7 @@ class AuthController extends Controller
     {
         $validate = Validator::validate([
             'name' => [Request::input('name'), 'required|min(3)|max(30)'],
-            'email' => [Request::input('email'), 'required|email|max(60)|unique(email)'],
+            'email' => [Request::input('email'), 'required|email|max(60)|unique(users,email)'],
             'password' => [Request::input('password'), 'required|min(8)'],
             'password_confirmation| confirm password' => [Request::input('password_confirmation'), 'required|matches(password)']
         ]);
